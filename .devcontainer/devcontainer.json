@@ -1,5 +1,5 @@
 {
-    "name": "ROS 2 Development Container",
+    "name": "ROS-2-Rosbridge-WebGUI-Example Development Container",
     "privileged": true,
     "remoteUser": "pbreuer",
     "build": {
@@ -8,8 +8,8 @@
             "USERNAME": "pbreuer"
         }
     },
-    "workspaceFolder": "/home/ws",
-    "workspaceMount": "source=${localWorkspaceFolder},target=/home/ws/src,type=bind",
+    "workspaceFolder": "/home/pbreuer",
+    "workspaceMount": "source=${localWorkspaceFolder},target=/home/pbreuer/ws,type=bind",
     "customizations": {
         "vscode": {
             "extensions":[

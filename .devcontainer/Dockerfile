@@ -14,6 +14,7 @@ RUN groupadd --gid $USER_GID $USERNAME \
     && chmod 0440 /etc/sudoers.d/$USERNAME
 RUN apt-get update && apt-get upgrade -y
 RUN apt-get install -y python3-pip
+RUN apt-get install -y ros-iron-rosbridge-server
 ENV SHELL /bin/bash
 
 # ********************************************************
@@ -22,4 +23,7 @@ ENV SHELL /bin/bash
 
 # [Optional] Set the default user. Omit if you want to keep the default as root.
 USER $USERNAME
+
+ENTRYPOINT ["/bin/bash", "/ros_entrypoint.sh"]
+
 CMD ["/bin/bash"]

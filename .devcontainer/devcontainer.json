@@ -22,18 +22,16 @@
             ]
         }
     },
-    "containerEnv": {
-        "DISPLAY": "unix:0",
-        "ROS_AUTOMATIC_DISCOVERY_RANGE": "LOCALHOST",
-        "ROS_DOMAIN_ID": "42"
+    "features": {
+        "ghcr.io/devcontainers/features/desktop-lite:1": {}
     },
-    "runArgs": [
-        "--net=host",
-        "-e", "DISPLAY=${env:DISPLAY}"
-    ],
-    "mounts": [
-       "source=/tmp/.X11-unix,target=/tmp/.X11-unix,type=bind,consistency=cached",
-        "source=/dev/dri,target=/dev/dri,type=bind,consistency=cached"
-    ],
-    "postCreateCommand": "sudo rosdep update && sudo rosdep install --from-paths src --ignore-src -y && sudo chown -R $(whoami) /home/ws/"
+    "forwardPorts": [6080, 5901],
+    "portsAttributes": {
+        "6080": {
+            "label": "Desktop (Web)"
+        },
+        "5901": {
+            "label": "Desktop (VNC)"
+        }
+    }
 }
